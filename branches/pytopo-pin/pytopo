@@ -1588,6 +1588,13 @@ that are expected by the MapCollection classes:
                      MapUtils.DecDegToDegMin(self.pin_lat),
                      self.Collection.name)
                 savefile.close()
+
+                #Add to KnownSites
+                self.controller.KnownSites.append( [name,
+                MapUtils.DecDegToDegMin(self.pin_lon),
+                MapUtils.DecDegToDegMin(self.pin_lat),
+                self.Collection.name] )
+
                 dialog.destroy()
                 return True
             else :
