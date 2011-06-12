@@ -988,7 +988,7 @@ class TopoMapCollection(TiledMapCollection) :
         longOffset = MapUtils.intTrunc(longMinDiff * 10 / self.series)
 
         # Now calculate the current filename.
-    # Note that series is either 7.5 or 15
+        # Note that series is either 7.5 or 15
         if (self.series > 13) :
             fileprefix = "024t"
             numcharts = 5
@@ -1839,6 +1839,9 @@ that are expected by the MapCollection classes:
     def longpress(self) :
         if self.press_timeout :
             gobject.source_remove(self.press_timeout)
+        x, y, state = self.drawing_area.window.get_pointer()
+        win_width, win_height = self.drawing_area.window.get_size()
+        self.cur_lon, self.cur_lat = self.xy2coords(x, y, win_width, win_height)
         self.context_menu(None)
         return True
 
