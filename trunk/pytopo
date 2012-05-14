@@ -1924,9 +1924,9 @@ that are expected by the MapCollection classes:
     def draw_string(self, x, y, str) :
         """Draw a string."""
         import pango
-        layout = self.drawing_area.create_pango_layout (str)
+        layout = self.drawing_area.create_pango_layout(str)
         fontdesc = pango.FontDescription("Sans Bold 12")
-        layout.set_font_description (fontdesc)
+        layout.set_font_description(fontdesc)
         self.drawing_area.window.draw_layout(self.xgc, x, y, layout)
 
     # Save the current map as something which could be gimped or printed.
